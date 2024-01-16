@@ -1,79 +1,105 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Prezentare generală a aplicației Fortnite
 
-# Getting Started
+## Ecrane
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+### 1 LoginScreen
 
-## Step 1: Start the Metro Server
+LoginScreen este proiectat pentru autentificarea utilizatorului și include două câmpuri `TextInput` pentru numele de utilizator și parola. Sunt furnizate două butoane, Login și Register. Butonul "Login" utilizează o funcție callback pentru a prelua datele utilizatorului de pe un server JSON local și verifică dacă datele de identificare introduse se potrivesc cu vreun utilizator din baza de date. Butonul "Register" navighează către RegisterScreen.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+<img src="screenshots/Screenshot_1705395182.png" alt="Proiect Fortnite" style="height: 853px; width:480px;"/>
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### 2. RegisterScreen
 
-```bash
-# using npm
-npm start
+RegisterScreen este dedicată înregistrării utilizatorilor și include două câmpuri `TextInput` pentru numele de utilizator și parola. Sunt furnizate două butoane, Register și Go To Login. Butonul "Register" utilizează o funcție callback pentru a trimite o cerere POST către serverul JSON local, creând un nou utilizator. Butonul "Go To Login" navighează către ecranul de autentificare.
 
-# OR using Yarn
-yarn start
+<img src="screenshots/Screenshot_1705395185.png" alt="Proiect Fortnite" style="height: 853px; width:480px;"/>
+
+### 3. Ecranul principal
+
+MainScreen servește ca ecran principal al aplicației, afișând știrile Fortnite preluate din Fortnite API folosind o componentă `FlatList`. Fiecare știre este reprezentată de o componentă `View` cu o componentă `Text` în interior. Ecranul prezintă, de asemenea, trei butoane de navigare: NewToFortnite, FortniteShop și XPCalculator.
+
+<img src="screenshots/Screenshot_1705395192.png" alt="Proiect Fortnite" style="height: 853px; width:480px;"/>
+
+### 4. FortniteShopScreen
+
+Acest ecran afișează articole din magazinul din jocul Fortnite folosind date preluate din API-ul Fortnite. Folosește un `ScrollView` pentru a prezenta articolele într-un aspect de tip grilă. Fiecare articol este reprezentat de o componentă `View` care conține o componentă `Image` și o componentă `Text`. Imaginile sunt preluate de la Fortnite API folosind URL-ul imaginii elementului.
+
+<img src="screenshots/Screenshot_1705395203.png" alt="Proiect Fortnite" style="height: 853px; width:480px;"/>
+
+### 5. NewToFortniteScreen
+
+Acest ecran preia date despre noile articole cosmetice de la Fortnite API folosind o componentă `FlatList`. Fiecare element este afișat în cadrul unei componente `View` care conține o componentă `Image` și o componentă `Text`. Imaginile pentru fiecare element sunt preluate de la Fortnite API folosind URL-ul imaginii elementului.
+
+<img src="screenshots/Screenshot_1705395196.png" alt="Proiect Fortnite" style="height: 853px; width:480px;"/>
+
+### 6. XPCalculatorScreen
+
+Acest ecran calculează XP-ul necesar și XP-ul pe zi pentru a ajunge la un anumit nivel în Fortnite. Dispune de câmpuri de introducere pentru nivelul actual și nivelul dorit, împreună cu un buton pentru a declanșa calculul XP. Valorile calculate sunt apoi afișate cu ajutorul unei componente `Text`.
+
+<img src="screenshots/Screenshot_1705395200.png" alt="Proiect Fortnite" style="height: 853px; width:480px;"/>
+
+## Navigare
+
+Aplicația folosește `@react-navigation/stack` pentru a configura sistemul de navigare. Containerul de navigare este configurat în fișierul `AppNavigator.js`, care este apoi exportat și utilizat în fișierul principal `App.tsx`.
+
+## Managementul datelor
+
+Aplicația se bazează pe o bază de date locală JSON stocată în fișierul `users.json`. Acest fișier conține o matrice de obiecte utilizator cu proprietăți precum id și nume de utilizator. Funcționalitățile Login și Register interacționează cu această bază de date pentru autentificarea și, respectiv, înregistrarea utilizatorilor. În plus, datele pentru articolele din magazinul Fortnite, știrile și noile articole cosmetice sunt preluate din Fortnite API folosind funcția `fetch` cu cereri GET.
 ```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "user1",
+      "password": "password1"
+    },
+    {
+      "id": "2",
+      "username": "user2",
+      "password": "password2"
+    }
+  ]
+}
 ```
+****
 
-### For iOS
+# Caz de Testare Manual pentru (XPCalculatorScreen)
 
-```bash
-# using npm
-npm run ios
+1. **Deschiderea Aplicației:**
+   - Deschide aplicația Fortnite.
 
-# OR using Yarn
-yarn ios
-```
+2. **Navigare către Calculatorul XP:**
+   - De pe ecranul principal, localizează butonul care spune "Go To XP Calculator" (sau similar).
+   - Apasă butonul pentru a naviga către ecranul `XPCalculatorScreen`.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+3. **Verificarea Aspectului Ecranului XPCalculatorScreen:**
+   - Verifică dacă ecranul `XPCalculatorScreen` se afișează fără erori.
+   - Asigură-te că există câmpuri de intrare pentru "Nivelul Curent" și "Nivelul Dorit" și un buton pentru calcularea XP.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+4. **Introducerea Valorilor Valide ale Nivelului:**
+   - În câmpul de intrare "Nivelul Curent", introdu un nivel de început valid (de exemplu, 10).
+   - În câmpul de intrare "Nivelul Dorit", introdu un nivel țintă valid, mai mare decât nivelul curent (de exemplu, 20).
 
-## Step 3: Modifying your App
+5. **Calculul XP:**
+   - Apasă butonul "Calculează XP".
 
-Now that you have successfully run the app, let's modify it.
+6. **Verificarea Calculului XP:**
+   - Verifică dacă ecranul afișează valoarea XP calculată.
+   - Asigură-te că XP-ul calculat este rezonabil în funcție de progresia XP-ului în Fortnite.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+7. **Introducerea Valorilor Invalide ale Nivelului:**
+   - În câmpul de intrare "Nivelul Curent", introdu o valoare de nivel invalidă (de exemplu, un număr negativ).
+   - În câmpul de intrare "Nivelul Dorit", introdu o valoare de nivel invalidă (de exemplu, un nivel mai mic decât nivelul curent).
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+8. **Verificarea Gestionării Erorilor:**
+   - Verifică dacă aplicația oferă mesaje de eroare adecvate sau gestionează cu eleganță intrările invalide.
+   - Asigură-te că valoarea XP calculată rămâne neschimbată când se detectează o intrare invalidă.
 
-## Congratulations! :tada:
+9. **Resetarea Intrărilor:**
+   - Resetează câmpurile de intrare la starea lor inițială (de exemplu, șterge valorile).
 
-You've successfully run and modified your React Native App. :partying_face:
+10. **Navigarea Înapoi la Ecranul Principal:**
+    - Dacă există o modalitate de a naviga înapoi la ecranul principal, fă acest lucru și asigură-te că navigarea funcționează corect.
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+11. **Concluzie:**
+    - Concluzionează testul asigurându-te că ecranul `XPCalculatorScreen` se comportă conform așteptărilor, cu un aspect corect, validare a intrărilor și calcul XP.
