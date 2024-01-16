@@ -1,4 +1,4 @@
-// LoginScreen.tsx
+// LoginScreen.js
 import React, { useState } from 'react';
 import { View, TextInput, Button, ActivityIndicator, Text, ScrollView, StyleSheet } from 'react-native';
 
@@ -17,15 +17,19 @@ const LoginScreen = ({ navigation }) => {
 
       setLoading(true);
 
-      const response = await fetch('http://192.168.1.104:3000/users', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await fetch(
+        'https://api.jsonbin.io/v3/b/65a661b3dc7465401893e538',
+        {
+          method: 'GET',
+          headers: {
+            'X-Master-key':
+              '$2a$10$9rQkPYBy2edEkvps.0L2pOH3eO0Uu0/aPxxZZs8It8Yp5C5de91RS',
+          },
+        }
+      );
 
-      const users = await response.json();
-      const authenticatedUser = users.find(
+      const data = await response.json();
+      const authenticatedUser = data.record.users.find(
         (user) => user.username === username && user.password === password
       );
 
