@@ -42,9 +42,9 @@ Acest ecran calculează XP-ul necesar și XP-ul pe zi pentru a ajunge la un anum
 
 Aplicația folosește `@react-navigation/stack` pentru a configura sistemul de navigare. Containerul de navigare este configurat în fișierul `AppNavigator.js`, care este apoi exportat și utilizat în fișierul principal `App.tsx`.
 
-## Managementul datelor
+## <del>Managementul datelor
 
-Aplicația se bazează pe o bază de date locală JSON stocată în fișierul `users.json`. Acest fișier conține o matrice de obiecte utilizator cu proprietăți precum id și nume de utilizator. Funcționalitățile Login și Register interacționează cu această bază de date pentru autentificarea și, respectiv, înregistrarea utilizatorilor. În plus, datele pentru articolele din magazinul Fortnite, știrile și noile articole cosmetice sunt preluate din Fortnite API folosind funcția `fetch` cu cereri GET.
+<del>Aplicația se bazează pe o bază de date locală JSON stocată în fișierul `users.json`. Acest fișier conține o matrice de obiecte utilizator cu proprietăți precum id și nume de utilizator. Funcționalitățile Login și Register interacționează cu această bază de date pentru autentificarea și, respectiv, înregistrarea utilizatorilor. În plus, datele pentru articolele din magazinul Fortnite, știrile și noile articole cosmetice sunt preluate din Fortnite API folosind funcția `fetch` cu cereri GET.
 ```
 {
   "users": [
