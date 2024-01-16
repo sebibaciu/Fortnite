@@ -91,6 +91,34 @@ Aplicația folosește `@react-navigation/stack` pentru a configura sistemul de n
    - În câmpul de intrare "Nivelul Curent", introdu o valoare de nivel invalidă (de exemplu, un număr negativ).
    - În câmpul de intrare "Nivelul Dorit", introdu o valoare de nivel invalidă (de exemplu, un nivel mai mic decât nivelul curent).
 
+## Metoda 1: Utilizând un Fișier Manager
+
+1. Descărcați fișierul APK pe dispozitivul Android. Puteți utiliza un browser web sau transferați direct de pe computer.
+
+2. Deschideți un manager de fișiere pe dispozitivul Android, cum ar fi "Files" sau "My Files".
+
+3. Găsiți fișierul APK descărcat și atingeți-l pentru a îl deschide.
+
+4. Dacă este necesar, activați opțiunea "Instalare din surse necunoscute" în setările dispozitivului. Această opțiune se găsește în mod obișnuit în "Setări" -> "Securitate" sau "Setări" -> "Securitate și confidențialitate".
+
+5. Urmați instrucțiunile pentru a completa procesul de instalare.
+
+## Metoda 2: Utilizând ADB (Android Debug Bridge)
+
+1. Conectați dispozitivul Android la computer folosind un cablu USB.
+
+2. Asigurați-vă că ADB este instalat pe computer. Dacă nu este instalat, puteți să-l descărcați de pe [site-ul Android](https://developer.android.com/studio/command-line/adb).
+
+3. Navigați la directorul în care este localizat fișierul APK pe computer.
+
+4. Deschideți o fereastră de comandă sau terminal în acel director.
+
+5. Introduceți următoarea comandă:
+
+   ```bash
+   adb install nume_fisier.apk
+
+
 8. **Verificarea Gestionării Erorilor:**
    - Verifică dacă aplicația oferă mesaje de eroare adecvate sau gestionează cu eleganță intrările invalide.
    - Asigură-te că valoarea XP calculată rămâne neschimbată când se detectează o intrare invalidă.
