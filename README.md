@@ -91,6 +91,8 @@ Aplicația folosește `@react-navigation/stack` pentru a configura sistemul de n
    - În câmpul de intrare "Nivelul Curent", introdu o valoare de nivel invalidă (de exemplu, un număr negativ).
    - În câmpul de intrare "Nivelul Dorit", introdu o valoare de nivel invalidă (de exemplu, un nivel mai mic decât nivelul curent).
 
+# Instalare
+
 ## Metoda 1: Utilizând un Fișier Manager
 
 1. Descărcați fișierul APK pe dispozitivul Android. Puteți utiliza un browser web sau transferați direct de pe computer.
