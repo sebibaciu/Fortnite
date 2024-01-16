@@ -94,12 +94,3 @@ Aplicația folosește `@react-navigation/stack` pentru a configura sistemul de n
 8. **Verificarea Gestionării Erorilor:**
    - Verifică dacă aplicația oferă mesaje de eroare adecvate sau gestionează cu eleganță intrările invalide.
    - Asigură-te că valoarea XP calculată rămâne neschimbată când se detectează o intrare invalidă.
-
-9. **Resetarea Intrărilor:**
-   - Resetează câmpurile de intrare la starea lor inițială (de exemplu, șterge valorile).
-
-10. **Navigarea Înapoi la Ecranul Principal:**
-    - Dacă există o modalitate de a naviga înapoi la ecranul principal, fă acest lucru și asigură-te că navigarea funcționează corect.
-
-11. **Concluzie:**
-    - Concluzionează testul asigurându-te că ecranul `XPCalculatorScreen` se comportă conform așteptărilor, cu un aspect corect, validare a intrărilor și calcul XP.
